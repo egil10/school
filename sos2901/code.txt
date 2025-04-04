@@ -1,0 +1,14 @@
+
+
+pred1 <-
+data1 %>% 
+mutate(pred_xy = predict(lm1, newdata=data1)) /
+mutate(pred_xy = predict(lm1))
+
+tab1 <-
+pred1 %>%
+select(predc, x) %>%
+table()
+
+confusionMatrix(tab1)
+confusionMatrix(tab1, positive="1")
